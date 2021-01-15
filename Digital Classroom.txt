@@ -1,0 +1,73 @@
+#include <LiquidCrystal.h>
+const int rs = 12, en = 11, d4 = 5, d5 = 4, d6 = 3, d7 = 2;
+LiquidCrystal lcd(rs, en, d4, d5, d6, d7);
+void setup() {
+  lcd.begin(16, 4);
+  lcd.setCursor(2, 0);
+  lcd.print("THEORY CLASS");
+}
+void loop() {
+  lcd.setCursor(5, 1);
+  lcd.print("CSE-402");
+  lcd.setCursor(2, 2);
+  lcd.print("...GOING ON...");
+  lcd.setCursor(2, 3);
+  lcd.print("K.M MOHIUDDIN");
+}
+Code For Scroll:
+#include <LiquidCrystal.h>
+LiquidCrystal lcd(rs, en, d4, d5, d6, d7);
+void setup() {
+  lcd.begin(16, 4);
+  lcd.setCursor(2, 0);
+  lcd.print("THEORY CLASS");
+  lcd.setCursor(5, 1);
+  lcd.print("CSE-402");
+  lcd.setCursor(2, 2);
+  lcd.print("...GOING ON...");
+  lcd.setCursor(2, 3);
+  lcd.print("K.M MOHIUDDIN");
+  delay(1000);
+}
+void loop() {
+  for (int positionCounter = 0; positionCounter < 16; positionCounter++) {
+    lcd.scrollDisplayLeft();
+      lcd.setCursor(2, 0);
+  lcd.print("THEORY CLASS");
+  lcd.setCursor(5, 1);
+  lcd.print("CSE-402");
+  lcd.setCursor(2, 2);
+  lcd.print("...GOING ON...");
+  lcd.setCursor(2, 3);
+  lcd.print("K.M MOHIUDDIN");
+    delay(150);
+  }
+  for (int positionCounter = 0; positionCounter < 16; positionCounter++) {
+    lcd.scrollDisplayRight();
+    {
+      lcd.setCursor(2, 0);
+  lcd.print("THEORY CLASS");
+  lcd.setCursor(5, 1);
+  lcd.print("CSE-402");
+  lcd.setCursor(2, 2);
+  lcd.print("...GOING ON...");
+  lcd.setCursor(2, 3);
+  lcd.print("K.M MOHIUDDIN");
+    }
+    delay(150);
+  }
+  for (int positionCounter = 0; positionCounter < 16; positionCounter++) {
+    lcd.scrollDisplayLeft();{
+      lcd.setCursor(2, 0);
+  lcd.print("THEORY CLASS");
+  lcd.setCursor(5, 1);
+  lcd.print("CSE-402");
+  lcd.setCursor(2, 2);
+  lcd.print("...GOING ON...");
+  lcd.setCursor(2, 3);
+  lcd.print("K.M MOHIUDDIN");
+    }
+    delay(150);
+  }
+  delay(1000);
+}
